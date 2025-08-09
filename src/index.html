@@ -1,156 +1,191 @@
 <!doctype html>
-<html>
+<html lang="pl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kalkulator dywidendy - oblicz dywidendę na udział dla każdego wspólnika w spółce">
+  <meta name="keywords" content="kalkulator dywidendy, dywidenda, udziały, wspólnicy, spółka">
   <link href="./output.css" rel="stylesheet">
-  <title>Kalkulator Dywidendy</title>
-  <style>
-    /* Custom hover effects for buttons */
-    .btn-hover-primary:hover,
-    .btn-hover-error:hover,
-    .btn-hover-secondary:hover {
-      transform: translateX(2px);
-      transition: transform 0.2s ease-in-out;
-    }
-    
-    /* Auto-select input styling */
-    .auto-select:focus {
-      user-select: all;
-    }
-  </style>
+  <title>Kalkulator Dywidendy - Oblicz dywidendę na udział</title>
 </head>
-<body class="bg-base-100 text-base-content font-sans min-h-screen">
-  <div class="container mx-auto max-w-6xl p-4 md:p-6 space-y-6">
+<body class="bg-white min-h-screen font-sans antialiased">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 btn btn-primary z-50">
+    Przejdź do głównej treści
+  </a>
+
+  <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
     <!-- Header -->
-    <div class="text-center mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold text-primary mb-2">Kalkulator Dywidendy</h1>
-      <p class="text-base-content/70 text-sm md:text-base">Oblicz dywidendę na udział dla każdego wspólnika</p>
-    </div>
+    <header class="text-center mb-12 animate-in">
+      <h1 class="text-4xl font-bold text-slate-900 sm:text-5xl lg:text-6xl text-balance">
+        Kalkulator Dywidendy
+      </h1>
+      <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto text-balance">
+        Profesjonalne narzędzie do obliczania dywidendy na udział dla każdego wspólnika w spółce
+      </p>
+    </header>
 
-    <!-- Configuration Section -->
-    <div class="card bg-base-200 shadow-lg">
-      <div class="card-body p-4 md:p-6">
-        <h2 class="card-title text-primary mb-6 text-xl md:text-2xl">
-          <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-          </svg>
-          Konfiguracja
-        </h2>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text font-medium text-sm md:text-base">Bonus udziałów uprzywilejowanych (%)</span>
-            </label>
-            <div class="relative">
-              <input type="number" id="privilegedBonus" class="input input-bordered w-full pr-12 text-sm md:text-base auto-select" 
-                     placeholder="25" value="25" min="0" step="0.1">
-              <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-base-content/50 text-sm">%</span>
+    <main id="main-content" class="space-y-8">
+      <!-- Configuration Section -->
+      <section aria-labelledby="config-heading" class="card animate-in">
+        <div class="p-6 sm:p-8">
+          <div class="flex items-center gap-3 mb-8">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50">
+              <svg class="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
             </div>
-            <label class="label">
-              <span class="label-text-alt text-base-content/60 text-xs">
+            <h2 id="config-heading" class="text-2xl font-semibold text-slate-900">
+              Konfiguracja kalkulatora
+            </h2>
+          </div>
+          
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div class="space-y-2">
+              <label for="privilegedBonus" class="label text-slate-700">
+                Bonus udziałów uprzywilejowanych (%)
+              </label>
+              <div class="relative">
+                <input 
+                  type="number" 
+                  id="privilegedBonus" 
+                  class="input pr-12" 
+                  placeholder="25" 
+                  value="25" 
+                  min="0" 
+                  step="0.1"
+                  aria-describedby="privilegedBonus-help"
+                >
+                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary text-sm" aria-hidden="true">%</span>
+              </div>
+              <p id="privilegedBonus-help" class="text-xs text-slate-600">
                 Każdy udział uprzywilejowany = 1 + (bonus/100) udziału nieuprzywilejowanego
-              </span>
-            </label>
-          </div>
+              </p>
+            </div>
 
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text font-medium text-sm md:text-base">Kwota dywidendy do wypłaty (PLN)</span>
-            </label>
-            <div class="relative">
-              <input type="text" id="totalDividend" class="input input-bordered w-full pr-16 text-sm md:text-base auto-select" 
-                     placeholder="100 000,00" value="100 000,00" min="0">
-              <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-base-content/50 text-sm">zł</span>
+            <div class="space-y-2">
+              <label for="totalDividend" class="label text-slate-700">
+                Kwota dywidendy do wypłaty (PLN)
+              </label>
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="totalDividend" 
+                  class="input pr-12" 
+                  placeholder="100 000,00" 
+                  value="100 000,00" 
+                  aria-describedby="totalDividend-help"
+                >
+                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-text-tertiary text-sm" aria-hidden="true">zł</span>
+              </div>
+              <p id="totalDividend-help" class="text-xs text-slate-600">
+                Całkowita kwota dywidendy do rozdzielenia między wspólników
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Partners Section -->
-    <div class="card bg-base-200 shadow-lg">
-      <div class="card-body p-4 md:p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="card-title text-primary text-xl md:text-2xl">
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
-            </svg>
-            Wspólnicy
-          </h2>
-          <button id="addPartner" class="btn btn-primary btn-sm btn-hover-primary">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-            </svg>
-            <span class="hidden sm:inline ml-1">Dodaj wspólnika</span>
-            <span class="sm:hidden">Dodaj</span>
-          </button>
-        </div>
-
-        <div id="partnersContainer" class="space-y-4">
-          <!-- Partners will be added here dynamically -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Results Section -->
-    <div class="card bg-primary text-primary-content shadow-lg">
-      <div class="card-body p-4 md:p-6">
-        <div class="flex justify-between items-center mb-6">
-          <h2 class="card-title text-xl md:text-2xl">
-            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-            </svg>
-            Wyniki obliczeń
-          </h2>
-          <button id="copyResults" class="btn btn-secondary btn-sm btn-hover-secondary">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-            </svg>
-            <span class="hidden sm:inline ml-1">Kopiuj wyniki</span>
-            <span class="sm:hidden">Kopiuj</span>
-          </button>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
-          <div class="bg-primary-content/10 rounded-lg p-4">
-            <div class="text-primary-content/70 text-xs md:text-sm font-medium mb-2">Razem efektywnych udziałów</div>
-            <div class="text-primary-content text-xl md:text-2xl font-bold" id="totalEffectiveShares">0</div>
+      <!-- Partners Section -->
+      <section aria-labelledby="partners-heading" class="card animate-in">
+        <div class="p-6 sm:p-8">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50">
+                <svg class="h-5 w-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                </svg>
+              </div>
+              <h2 id="partners-heading" class="text-2xl font-semibold text-slate-900">
+                Wspólnicy
+              </h2>
+            </div>
+            <button 
+              id="addPartner" 
+              class="btn btn-primary"
+              aria-label="Dodaj nowego wspólnika"
+            >
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+              </svg>
+              <span class="hidden sm:inline">Dodaj wspólnika</span>
+              <span class="sm:hidden">Dodaj</span>
+            </button>
           </div>
-          
-          <div class="bg-primary-content/10 rounded-lg p-4">
-            <div class="text-primary-content/70 text-xs md:text-sm font-medium mb-2">Dywidenda na udział uprzywilejowany</div>
-            <div class="text-primary-content text-lg md:text-xl font-bold" id="dividendPerPrivileged">0,00 zł</div>
-          </div>
-          
-          <div class="bg-primary-content/10 rounded-lg p-4">
-            <div class="text-primary-content/70 text-xs md:text-sm font-medium mb-2">Dywidenda na udział nieuprzywilejowany</div>
-            <div class="text-primary-content text-lg md:text-xl font-bold" id="dividendPerRegular">0,00 zł</div>
-          </div>
-          
-          <div class="bg-primary-content/10 rounded-lg p-4">
-            <div class="text-primary-content/70 text-xs md:text-sm font-medium mb-2">Łączna liczba wspólników</div>
-            <div class="text-primary-content text-xl md:text-2xl font-bold" id="totalPartners">0</div>
+
+          <div id="partnersContainer" class="space-y-6" role="group" aria-labelledby="partners-heading">
+            <!-- Partners will be added here dynamically -->
           </div>
         </div>
+      </section>
 
-        <div class="divider divider-neutral my-6"></div>
-        
-        <h3 class="text-lg md:text-xl font-bold mb-6">Wypłaty dla wspólników</h3>
-        <div id="partnersResults" class="space-y-4">
-          <!-- Results will be displayed here -->
+      <!-- Results Section -->
+      <section aria-labelledby="results-heading" class="card !bg-slate-900 text-white animate-in">
+        <div class="p-6 sm:p-8">
+          <div class="flex items-center justify-between mb-8">
+            <div class="flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10">
+                <svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <h2 id="results-heading" class="text-2xl font-semibold">
+                Wyniki obliczeń
+              </h2>
+            </div>
+            <button 
+              id="copyResults" 
+              class="btn bg-white/10 text-white hover:bg-white/20 border border-white/20"
+              aria-label="Kopiuj wyniki do schowka"
+            >
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+              </svg>
+              <span class="hidden sm:inline">Kopiuj wyniki</span>
+              <span class="sm:hidden">Kopiuj</span>
+            </button>
+          </div>
+
+          <!-- Summary Statistics -->
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+            <div class="stat-card">
+              <div class="text-white/80 text-sm font-medium mb-2">Razem efektywnych udziałów</div>
+              <div class="text-white text-2xl font-bold" id="totalEffectiveShares" aria-live="polite">0</div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="text-white/80 text-sm font-medium mb-2">Dywidenda na udział uprzywilejowany</div>
+              <div class="text-white text-lg font-bold" id="dividendPerPrivileged" aria-live="polite">0,00 zł</div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="text-white/80 text-sm font-medium mb-2">Dywidenda na udział nieuprzywilejowany</div>
+              <div class="text-white text-lg font-bold" id="dividendPerRegular" aria-live="polite">0,00 zł</div>
+            </div>
+            
+            <div class="stat-card">
+              <div class="text-white/80 text-sm font-medium mb-2">Łączna liczba wspólników</div>
+              <div class="text-white text-2xl font-bold" id="totalPartners" aria-live="polite">0</div>
+            </div>
+          </div>
+
+          <div class="border-t border-white/20 pt-8">
+            <h3 class="text-xl font-semibold mb-6">Wypłaty dla wspólników</h3>
+            <div id="partnersResults" class="space-y-4" role="region" aria-label="Wyniki wypłat dla wspólników" aria-live="polite">
+              <!-- Results will be displayed here -->
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   </div>
 
   <script>
     let partnerCount = 0;
     let partners = [];
 
-    // Add initial partner
+    // Initialize app
     document.addEventListener('DOMContentLoaded', function() {
       addPartner();
       calculate();
@@ -159,12 +194,13 @@
       setupInputFormatting();
     });
 
+    // Event listeners
     document.getElementById('addPartner').addEventListener('click', addPartner);
     document.getElementById('privilegedBonus').addEventListener('input', calculate);
     document.getElementById('totalDividend').addEventListener('input', calculate);
 
+    // Utility functions for Polish currency formatting
     function formatPolishCurrency(amount) {
-      // Format number to Polish currency format: "400 000,00 zł"
       return amount.toLocaleString('pl-PL', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
@@ -172,7 +208,6 @@
     }
 
     function formatPolishNumber(number) {
-      // Format number to Polish format: "400 000,00"
       return number.toLocaleString('pl-PL', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2
@@ -180,7 +215,6 @@
     }
 
     function formatPolishInteger(number) {
-      // Format number to Polish format without decimals: "400 000"
       return number.toLocaleString('pl-PL', {
         minimumFractionDigits: 0,
         maximumFractionDigits: 0
@@ -188,19 +222,17 @@
     }
 
     function parsePolishNumber(formattedValue) {
-      // Convert "400 000,00" back to 400000.00
       return parseFloat(formattedValue.replace(/\s/g, '').replace(',', '.')) || 0;
     }
 
     function formatInputValue(input, value) {
-      // Format input value for display
       const numValue = parseFloat(value) || 0;
       input.value = formatPolishNumber(numValue);
     }
 
+    // Input enhancements
     function setupInputAutoSelect() {
-      // Add auto-select functionality to existing inputs
-      document.querySelectorAll('.auto-select').forEach(input => {
+      document.querySelectorAll('input[type="number"], input[type="text"]').forEach(input => {
         input.addEventListener('focus', function() {
           this.select();
         });
@@ -218,7 +250,6 @@
       });
 
       totalDividendInput.addEventListener('focus', function() {
-        // Convert back to plain number for editing
         const value = parsePolishNumber(this.value);
         if (value > 0) {
           this.value = value.toString();
@@ -236,53 +267,87 @@
       });
     }
 
+    // Partner management
     function addPartner() {
       partnerCount++;
       const partnerId = `partner_${partnerCount}`;
       
       const partnerDiv = document.createElement('div');
-      partnerDiv.className = 'bg-base-100 p-4 md:p-6 rounded-lg border-2 border-base-300';
+      partnerDiv.className = 'partner-card animate-in';
       partnerDiv.id = partnerId;
+      partnerDiv.setAttribute('role', 'group');
+      partnerDiv.setAttribute('aria-label', `Wspólnik ${partnerCount}`);
       
       partnerDiv.innerHTML = `
-        <div class="flex justify-between items-center mb-4">
-          <h3 class="font-bold text-base md:text-lg">Wspólnik ${partnerCount}</h3>
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-lg font-semibold text-slate-900">Wspólnik ${partnerCount}</h3>
           ${partnerCount > 1 ? `
-            <button class="btn btn-error btn-sm btn-hover-error" onclick="removePartner('${partnerId}')">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button 
+              class="btn btn-outline text-red-600 border-red-300 hover:bg-red-600 hover:text-white hover:border-red-600" 
+              onclick="removePartner('${partnerId}')"
+              aria-label="Usuń wspólnika ${partnerCount}"
+            >
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
               </svg>
-              <span class="hidden sm:inline ml-1">Usuń</span>
+              <span class="hidden sm:inline">Usuń</span>
             </button>
           ` : ''}
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text text-sm md:text-base">Nazwa wspólnika</span>
+        <div class="grid gap-4 sm:grid-cols-3">
+          <div class="space-y-2">
+            <label for="${partnerId}_name" class="label text-slate-700">
+              Nazwa wspólnika
             </label>
-            <input type="text" class="input input-bordered input-sm md:input-md text-sm md:text-base auto-select" 
-                   placeholder="Jan Kowalski" 
-                   onchange="updatePartnerName('${partnerId}', this.value)">
+            <input 
+              type="text" 
+              id="${partnerId}_name"
+              class="input" 
+              placeholder="Jan Kowalski" 
+              onchange="updatePartnerName('${partnerId}', this.value)"
+              aria-required="true"
+            >
           </div>
           
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text text-sm md:text-base">Udziały uprzywilejowane</span>
+          <div class="space-y-2">
+            <label for="${partnerId}_privileged" class="label text-slate-700">
+              Udziały uprzywilejowane
             </label>
-            <input type="number" class="input input-bordered input-sm md:input-md privileged-shares text-sm md:text-base auto-select" 
-                   placeholder="0" value="0" min="0" step="1"
-                   onchange="calculate()">
+            <input 
+              type="number" 
+              id="${partnerId}_privileged"
+              class="input privileged-shares" 
+              placeholder="0" 
+              value="0" 
+              min="0" 
+              step="1"
+              onchange="calculate()"
+              aria-describedby="${partnerId}_privileged_help"
+            >
+            <p id="${partnerId}_privileged_help" class="sr-only">
+              Liczba udziałów uprzywilejowanych dla tego wspólnika
+            </p>
           </div>
           
-          <div class="form-control">
-            <label class="label">
-              <span class="label-text text-sm md:text-base">Udziały nieuprzywilejowane</span>
+          <div class="space-y-2">
+            <label for="${partnerId}_regular" class="label text-slate-700">
+              Udziały nieuprzywilejowane
             </label>
-            <input type="number" class="input input-bordered input-sm md:input-md regular-shares text-sm md:text-base auto-select" 
-                   placeholder="0" value="0" min="0" step="1"
-                   onchange="calculate()">
+            <input 
+              type="number" 
+              id="${partnerId}_regular"
+              class="input regular-shares" 
+              placeholder="0" 
+              value="0" 
+              min="0" 
+              step="1"
+              onchange="calculate()"
+              aria-describedby="${partnerId}_regular_help"
+            >
+            <p id="${partnerId}_regular_help" class="sr-only">
+              Liczba udziałów nieuprzywilejowanych dla tego wspólnika
+            </p>
           </div>
         </div>
       `;
@@ -290,7 +355,7 @@
       document.getElementById('partnersContainer').appendChild(partnerDiv);
       
       // Add auto-select to new inputs
-      partnerDiv.querySelectorAll('.auto-select').forEach(addAutoSelectToInput);
+      partnerDiv.querySelectorAll('input').forEach(addAutoSelectToInput);
       
       partners.push({
         id: partnerId,
@@ -299,28 +364,42 @@
         regularShares: 0
       });
       
+      // Focus on name input for new partner
+      document.getElementById(`${partnerId}_name`).focus();
+      
       calculate();
     }
 
     function removePartner(partnerId) {
-      document.getElementById(partnerId).remove();
-      partners = partners.filter(p => p.id !== partnerId);
-      calculate();
+      const partnerElement = document.getElementById(partnerId);
+      if (partnerElement) {
+        partnerElement.remove();
+        partners = partners.filter(p => p.id !== partnerId);
+        calculate();
+        
+        // Announce removal for screen readers
+        const announcement = document.createElement('div');
+        announcement.setAttribute('aria-live', 'polite');
+        announcement.className = 'sr-only';
+        announcement.textContent = 'Wspólnik został usunięty';
+        document.body.appendChild(announcement);
+        setTimeout(() => document.body.removeChild(announcement), 1000);
+      }
     }
 
     function updatePartnerName(partnerId, name) {
       const partner = partners.find(p => p.id === partnerId);
       if (partner) {
-        partner.name = name || partner.id;
+        partner.name = name || `Wspólnik ${partnerId.split('_')[1]}`;
       }
       calculate();
     }
 
+    // Copy results functionality
     function copyResultsToClipboard() {
       const privilegedBonus = parseFloat(document.getElementById('privilegedBonus').value) || 0;
       const totalDividend = parsePolishNumber(document.getElementById('totalDividend').value);
       
-      // Calculate values again for copy function
       const privilegedMultiplier = 1 + (privilegedBonus / 100);
       let totalEffectiveShares = 0;
       
@@ -362,30 +441,35 @@
       resultsText += `Wygenerowano: ${new Date().toLocaleString('pl-PL')}\n`;
       
       navigator.clipboard.writeText(resultsText).then(() => {
-        // Show success feedback
-        const button = document.getElementById('copyResults');
-        const originalText = button.innerHTML;
-        button.innerHTML = `
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-          <span class="hidden sm:inline ml-1">Skopiowano!</span>
-          <span class="sm:hidden">OK!</span>
-        `;
-        button.classList.add('btn-success');
-        button.classList.remove('btn-secondary');
-        
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.classList.remove('btn-success');
-          button.classList.add('btn-secondary');
-        }, 2000);
+        showCopySuccess();
       }).catch(err => {
         console.error('Błąd kopiowania:', err);
         alert('Nie udało się skopiować wyników do schowka.');
       });
     }
 
+    function showCopySuccess() {
+      const button = document.getElementById('copyResults');
+      const originalText = button.innerHTML;
+      
+      button.innerHTML = `
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span class="hidden sm:inline">Skopiowano!</span>
+        <span class="sm:hidden">OK!</span>
+      `;
+              button.classList.add('bg-green-600', 'text-white');
+        button.classList.remove('bg-white/10');
+      
+              setTimeout(() => {
+          button.innerHTML = originalText;
+          button.classList.remove('bg-green-600');
+          button.classList.add('bg-white/10', 'text-white');
+        }, 2000);
+    }
+
+    // Main calculation function
     function calculate() {
       const privilegedBonus = parseFloat(document.getElementById('privilegedBonus').value) || 0;
       const totalDividendInput = document.getElementById('totalDividend');
@@ -417,7 +501,7 @@
       const dividendPerPrivileged = dividendPerEffectiveShare * privilegedMultiplier;
       const dividendPerRegular = dividendPerEffectiveShare;
 
-      // Update results
+      // Update summary results
       document.getElementById('totalEffectiveShares').textContent = formatPolishInteger(totalEffectiveShares);
       document.getElementById('dividendPerPrivileged').textContent = formatPolishCurrency(dividendPerPrivileged);
       document.getElementById('dividendPerRegular').textContent = formatPolishCurrency(dividendPerRegular);
@@ -428,7 +512,15 @@
       resultsContainer.innerHTML = '';
 
       if (partners.length === 0) {
-        resultsContainer.innerHTML = '<p class="text-primary-content/70 text-center py-8">Brak wspólników do wyświetlenia</p>';
+        resultsContainer.innerHTML = `
+          <div class="text-center py-12 text-white/70">
+            <svg class="mx-auto h-12 w-12 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+            </svg>
+            <p class="text-lg">Brak wspólników do wyświetlenia</p>
+            <p class="text-sm mt-2">Dodaj wspólników aby zobaczyć wyniki obliczeń</p>
+          </div>
+        `;
         return;
       }
 
@@ -438,24 +530,26 @@
         const totalPayout = privilegedPayout + regularPayout;
 
         const resultDiv = document.createElement('div');
-        resultDiv.className = 'bg-primary-content/10 p-4 md:p-6 rounded-lg';
+        resultDiv.className = 'bg-white/10 p-6 rounded-lg border border-white/20';
         resultDiv.innerHTML = `
-          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 gap-2">
-            <h4 class="font-bold text-base md:text-lg">${partner.name}</h4>
-            <span class="text-lg md:text-xl font-bold text-primary-content">${formatPolishCurrency(totalPayout)}</span>
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
+            <h4 class="text-lg font-semibold text-white">${partner.name}</h4>
+            <div class="text-2xl font-bold text-white">${formatPolishCurrency(totalPayout)}</div>
           </div>
-          <div class="text-xs md:text-sm text-primary-content/80 space-y-2 md:space-y-0 md:grid md:grid-cols-3 md:gap-4">
-            <div class="flex justify-between md:block">
-              <span class="font-medium">Uprzywilejowane:</span> 
-              <span class="md:block">${partner.privilegedShares} × ${formatPolishCurrency(dividendPerPrivileged)} = ${formatPolishCurrency(privilegedPayout)}</span>
+          <div class="grid gap-3 sm:grid-cols-3 text-sm text-white/80">
+            <div class="space-y-1">
+              <div class="font-medium text-white/90">Uprzywilejowane</div>
+              <div>${partner.privilegedShares} × ${formatPolishCurrency(dividendPerPrivileged)}</div>
+              <div class="font-medium text-white">${formatPolishCurrency(privilegedPayout)}</div>
             </div>
-            <div class="flex justify-between md:block">
-              <span class="font-medium">Nieuprzywilejowane:</span> 
-              <span class="md:block">${partner.regularShares} × ${formatPolishCurrency(dividendPerRegular)} = ${formatPolishCurrency(regularPayout)}</span>
+            <div class="space-y-1">
+              <div class="font-medium text-white/90">Nieuprzywilejowane</div>
+              <div>${partner.regularShares} × ${formatPolishCurrency(dividendPerRegular)}</div>
+              <div class="font-medium text-white">${formatPolishCurrency(regularPayout)}</div>
             </div>
-            <div class="flex justify-between md:block">
-              <span class="font-medium">Efektywne udziały:</span> 
-              <span class="md:block">${formatPolishInteger(partner.effectiveShares)}</span>
+            <div class="space-y-1">
+              <div class="font-medium text-white/90">Efektywne udziały</div>
+              <div class="font-medium text-white">${formatPolishInteger(partner.effectiveShares)}</div>
             </div>
           </div>
         `;
@@ -464,4 +558,4 @@
     }
   </script>
 </body>
-</html> 
+</html>
